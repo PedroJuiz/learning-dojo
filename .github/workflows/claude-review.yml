@@ -29,7 +29,7 @@ jobs:
       - uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          direct_prompt: |
+          prompt: |
             Review this pull request. Focus on:
             - Correctness and logic errors
             - Security issues (injection, credential exposure, insecure defaults)

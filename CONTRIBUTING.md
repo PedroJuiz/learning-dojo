@@ -4,35 +4,32 @@ Thanks for your interest in contributing to learning-dojo!
 
 ## Adding a new project
 
-1. Create a subfolder (e.g. `my-project/`) with this structure:
-   ```
-   my-project/
-   ├── src/my_project/
-   ├── tests/
-   ├── pyproject.toml
-   ├── CLAUDE.md
-   └── README.md
-   ```
-2. Use `uv` for dependency management. Run all commands from within the project subfolder.
-3. Add a `CLAUDE.md` covering setup, commands, and architecture.
-4. Add a row to the project tables in both `README.md` and `CLAUDE.md`.
+Each project lives in its own subfolder. The structure will vary by language, but every project must have:
 
-## Development workflow
-
-```bash
-# Install dependencies (run from the project subfolder)
-uv sync
-
-# Lint and format
-uv run ruff check src tests
-uv run ruff format src tests
-
-# Type check
-uv run mypy src
-
-# Run tests
-uv run pytest
 ```
+my-project/
+├── src/          # or the language-idiomatic source layout
+├── tests/
+├── CLAUDE.md     # setup, commands, architecture
+└── README.md     # what the project does and how to run it
+```
+
+### Requirements for any new project
+
+1. Self-contained — all dependencies declared and installable from the subfolder.
+2. Tested — include a test suite runnable with a single command.
+3. Documented — `README.md` explains the purpose and how to get started; `CLAUDE.md` covers setup, commands, and architecture for Claude Code users.
+4. Listed — add a row to the project tables in both the root `README.md` and `CLAUDE.md`.
+
+### Language-specific notes
+
+| Language | Dependency manager | Lint/format | Tests |
+|---|---|---|---|
+| Python | `uv` | `ruff` | `pytest` |
+| TypeScript/JS | `npm` / `pnpm` | `eslint` + `prettier` | `vitest` / `jest` |
+| Other | Use the idiomatic tool | — | — |
+
+Run all commands from within the project subfolder, not the repo root.
 
 ## Submitting changes
 

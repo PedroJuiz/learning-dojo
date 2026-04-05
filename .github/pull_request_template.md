@@ -3,9 +3,10 @@
 ## Project(s) affected
 <!-- List subfolder(s) touched -->
 
+## Language / stack
+
 ## Checklist
-- [ ] Tests pass (`uv run pytest`)
-- [ ] Lint clean (`uv run ruff check src tests`)
-- [ ] Type check passes (`uv run mypy src`)
+- [ ] Tests pass
+- [ ] Lint and formatting clean
 - [ ] `CLAUDE.md` updated if architecture changed
 - [ ] `README.md` updated if a new project was added

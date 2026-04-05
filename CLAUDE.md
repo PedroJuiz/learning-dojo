@@ -13,12 +13,12 @@ Monorepo of hands-on Claude Code learning projects. Each project lives in its ow
 
 ## Conventions
 
-- Each project uses `uv` for dependency management.
+- Each project is self-contained in its own subfolder with its own dependency manager, tests, and `CLAUDE.md`.
 - Run all commands from within the project subfolder, not the repo root.
-- Each project has its own `CLAUDE.md` with project-specific guidance.
+- Use the idiomatic toolchain for the project's language (e.g. `uv` for Python, `npm`/`pnpm` for TypeScript).
 
 ## Adding a new project
 
-1. Create a subfolder with its own `pyproject.toml`, `src/`, and `tests/`.
+1. Create a subfolder with its own source layout, dependency file, and `tests/`.
 2. Add a `CLAUDE.md` inside the subfolder covering setup, commands, and architecture.
 3. Add a row to the project table above.

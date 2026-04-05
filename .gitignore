@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+dist/
+*.egg-info/
+
+# Environment
+.env
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Browser session (auth cookies — never commit)
+.browser_session/
+
+# Claude Code local settings (personal, not for sharing)
+.claude/

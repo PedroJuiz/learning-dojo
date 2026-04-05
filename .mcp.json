@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "medium": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "medium-mcp",
+        "medium-mcp"
+      ],
+      "env": {}
+    },
+    "devto": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "devto-mcp",
+        "devto-mcp"
+      ],
+      "env": {}
+    }
+  }
+}

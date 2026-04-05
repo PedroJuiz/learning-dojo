@@ -1,0 +1,41 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    # Only run on PRs or when @claude is mentioned in a comment
+    if: |
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude'))
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          direct_prompt: |
+            Review this pull request. Focus on:
+            - Correctness and logic errors
+            - Security issues (injection, credential exposure, insecure defaults)
+            - Code quality and adherence to project conventions in CLAUDE.md
+            - Missing or broken tests
+
+            Post inline comments on specific lines where issues are found.
+            Add a top-level summary comment with an overall assessment.
+            Be concise — flag real issues, skip nitpicks on style already handled by linters.

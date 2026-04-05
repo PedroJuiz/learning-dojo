@@ -1,6 +1,6 @@
 # learning-dojo
 
-A monorepo for hands-on Claude Code learning projects.
+A monorepo for hands-on Claude Code and software development learning projects.
 
 ## Projects
 
